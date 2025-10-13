@@ -1,27 +1,3 @@
-"""
-Farming script for Minecraft's Hypixel Skyblock.
-This script is designed to farm resources for the player.
-It is a work in progress and will be updated as the game is updated.
-
-Features:
-- The script should make the player move nonstop in one direction until something blocks the movement (like running into a wall or the edge of the area).
-
-During the entire process, it should constantly hold down the left mouse button, so harvesting never stops.
-
-If the normal farming motion gets disrupted — for example:
-
-Macro-checked by an anti-macro protocol, whether it be an admin or just the server itself.
-
-Or anything interrupts the usual pattern —
-the script should be able to detect that interruption and react accordingly, instead of continuing blindly.
-"""
-
-
-"""
-Minecraft Farming Script with Interruption Detection
-Press F1 to start/stop farming
-Press ESC to exit the script
-"""
 
 # Import the keyboard library to simulate keypresses
 import keyboard
@@ -33,3 +9,28 @@ import time
 import threading
 # Import pynput's mouse Controller to get and set mouse position
 from pynput.mouse import Controller, Button
+
+# Reference Variables:
+running = False
+exit_flag = False
+movement_key = 'a'
+mouse_button = 'left'
+
+# Print Status Statements:
+def print_func():
+    print("\n--------------------------------\n")
+    print("Minecraft Farming Macro ~ Ready!")
+    print("Controls:")
+    print("F1: Start/Stop the farming macro.")
+    print("ESC: Exit the script.")
+    print("Press F1 to begin the script.")
+    print("\n--------------------------------\n")
+
+# Keyboard Functions:
+def key_func():
+    global running, exit_flag, movement_key
+
+    if keyboard.is_pressed('f1'):
+        running = not running
+        if running:
+            print("Farming script started!")

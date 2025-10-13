@@ -16,6 +16,37 @@ import threading
 from pynput.mouse import Controller, Button
 
 
-# ============================================
+# Configuration:
 
+KEY_TO_PRESS = 'w'
 
+# How long to hold the key down (in seconds)
+HOLD_DURATION = 2
+
+# How many times to click the mouse
+CLICK_COUNT = 5
+
+# Delay between clicks (in seconds)
+CLICK_DELAY = 0.5
+
+# Mouse button to use: 'left', 'right', or 'middle'
+MOUSE_BUTTON = 'left'
+
+# Where to move the mouse (x, y coordinates on screen)
+MOUSE_X_POSITION = 500
+MOUSE_Y_POSITION = 500
+
+# Functions:
+
+# Main Function:
+def main():
+    print("Starting script...")
+    time.sleep(1)
+    print("\nScript started!")
+    time.sleep(1)
+    print("\nScript stopping...")
+    time.sleep(1)
+    print("\nScript finished!")
+
+if __name__ == "__main__":
+    main()
