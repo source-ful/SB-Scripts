@@ -16,6 +16,7 @@ exit_flag = False
 movement_key = 'a'
 mouse_button = 'left'
 mouse_held = False
+movement_start_time = 0
 
 # Print Status Statements:
 def print_func(): # Starting print statement to make everything look pretty.
@@ -38,29 +39,39 @@ def key_func(): # Keyboard function for movement.
         else:
             print("\nFarming script stopped!")
         time.sleep(0.5) # To prevent multiple quick toggles.
+    
+    if keyboard.is_pressed('f2'):
+        if movement_key != 'd':  # If not 'd', then switch to 'd'
+            movement_key = 'd'   
+            print("Direction: RIGHT (D key)")
+        else:                   # If it is 'd', switch to 'a'
+            movement_key = 'a'  
+            print("Direction: LEFT (A key)")
+            time.sleep(0.5) # To prevent multiple quick toggles.
+
     if keyboard.is_pressed('esc'):
         exit_flag = True
         print("\nScript exiting...")
-        time.sleep(0.5)
+        time.sleep(0.5) # To prevent multiple quick toggles.
+    
+def check_if_stuck():
+     
 
 def move_character():
     keyboard.press(movement_key)
-    print(f"Moving {movement_key.upper()} sideways!\n")
+    
 
 def release_move_character():
     keyboard.release(movement_key)
-    print("Stopping movement...\n")
+    
 
 def hold_mouse_button():
     mouse.press(mouse_button)
-    print("\nMouse clicking begining!")
+    
 
 def release_mouse_button():
     mouse.release(mouse_button)
-    print("\nMouse movement ending...")
-
-# Main Function
-
+    
 # Main program
 def main():
     global mouse_held
